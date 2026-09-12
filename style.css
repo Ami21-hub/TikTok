@@ -1,0 +1,352 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
+
+.app {
+    width: 100%;
+    height: 100vh;
+    background: #000;
+}
+
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 65px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 20;
+
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.55),
+        transparent
+    );
+}
+
+.top-left {
+    position: absolute;
+    left: 18px;
+}
+
+.live {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.top-tabs {
+    display: flex;
+    gap: 25px;
+
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.top-tabs span {
+    opacity: 0.7;
+}
+
+.top-tabs .active-tab {
+    opacity: 1;
+
+    border-bottom: 2px solid white;
+
+    padding-bottom: 6px;
+}
+
+.search {
+    position: absolute;
+    right: 18px;
+
+    font-size: 30px;
+}
+
+#feed {
+    width: 100%;
+    height: 100vh;
+
+    overflow-y: scroll;
+
+    scroll-snap-type: y mandatory;
+
+    scrollbar-width: none;
+}
+
+#feed::-webkit-scrollbar {
+    display: none;
+}
+
+.video-card {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    scroll-snap-align: start;
+
+    overflow: hidden;
+
+    background: #111;
+}
+
+.video-card video {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    cursor: pointer;
+}
+
+.video-card::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 45%;
+
+    background: linear-gradient(
+        transparent,
+        rgba(0, 0, 0, 0.75)
+    );
+
+    pointer-events: none;
+}
+
+.video-info {
+    position: absolute;
+
+    left: 18px;
+    bottom: 95px;
+
+    max-width: 72%;
+
+    z-index: 5;
+
+    text-shadow: 0 1px 4px #000;
+}
+
+.video-info h3 {
+    font-size: 17px;
+
+    margin-bottom: 10px;
+}
+
+.video-info p {
+    font-size: 15px;
+
+    margin-bottom: 7px;
+}
+
+.music {
+    margin-top: 12px;
+
+    font-size: 14px;
+}
+
+.side-buttons {
+    position: absolute;
+
+    right: 14px;
+    bottom: 95px;
+
+    z-index: 10;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+.profile {
+    position: relative;
+}
+
+.profile img {
+    width: 52px;
+    height: 52px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    border: 2px solid white;
+}
+
+.profile span {
+    position: absolute;
+
+    bottom: -8px;
+    left: 18px;
+
+    width: 20px;
+    height: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background: #ff0050;
+
+    font-size: 17px;
+}
+
+.side-buttons button {
+    border: none;
+
+    background: transparent;
+
+    color: white;
+
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 4px;
+}
+
+.side-buttons strong {
+    font-size: 32px;
+
+    line-height: 32px;
+}
+
+.side-buttons small {
+    font-size: 12px;
+
+    max-width: 65px;
+
+    text-align: center;
+}
+
+.like strong {
+    font-size: 38px;
+}
+
+.like.liked strong {
+    color: #ff0050;
+}
+
+.like.liked {
+    transform: scale(1.08);
+}
+
+.more strong {
+    font-size: 20px;
+}
+
+.bottom-nav {
+    position: fixed;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 65px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    z-index: 30;
+
+    background: #000;
+
+    border-top: 1px solid #222;
+}
+
+.nav-item {
+    background: transparent;
+    border: none;
+
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 3px;
+
+    cursor: pointer;
+}
+
+.nav-item span {
+    font-size: 25px;
+}
+
+.nav-item small {
+    font-size: 10px;
+}
+
+.nav-item.active {
+    font-weight: bold;
+}
+
+.create-button {
+    width: 48px;
+    height: 32px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: white;
+
+    cursor: pointer;
+
+    position: relative;
+}
+
+.create-button span {
+    color: black;
+
+    font-size: 24px;
+}
+
+@media (min-width: 700px) {
+
+    body {
+        display: flex;
+        justify-content: center;
+    }
+
+    .app {
+        width: 430px;
+
+        box-shadow:
+            0 0 40px rgba(255,255,255,0.15);
+    }
+
+    .top-bar,
+    .bottom-nav {
+        width: 430px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
